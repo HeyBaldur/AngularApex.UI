@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module.routing';
 import { AppComponent } from './app.component';
+import { LoggedGuard } from './core/guards/logged.guard';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
