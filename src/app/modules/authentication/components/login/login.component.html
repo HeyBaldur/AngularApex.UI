@@ -1,13 +1,15 @@
 <div class="d-flex align-items-center py-4">
   <main class="form-signin w-100 m-auto">
-    <form>
-      <img
-        class="mb-4"
-        src="../../../../../assets/img/logos/crm.png"
-        alt=""
-        width="72"
-        height="72"
-      />
+    <form [formGroup]="form" (ngSubmit)="subtmit(this.form.value)">
+      <a [routerLink]="['/home']">
+        <img
+          class="mb-4"
+          src="../../../../../assets/img/logos/crm.png"
+          alt=""
+          width="72"
+          height="72"
+        />
+      </a>
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
@@ -16,6 +18,7 @@
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          formControlName="email"
         />
         <label for="floatingInput">Email address</label>
       </div>
@@ -25,16 +28,22 @@
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          formControlName="password"
         />
         <label for="floatingPassword">Password</label>
       </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-      <a [routerLink]="['/']" routerLinkActive="router-link-active"
-        >Return to home</a
+      <button
+        class="btn btn-primary w-100 py-2"
+        type="submit"
+        [disabled]="this.form.invalid"
       >
+        Sign in
+      </button>
+
       <p>
-        <a [routerLink]="['/']" routerLinkActive="router-link-active"
+        <a
+          [routerLink]="['/auth/register']"
+          routerLinkActive="router-link-active"
           >Create an account</a
         >
       </p>

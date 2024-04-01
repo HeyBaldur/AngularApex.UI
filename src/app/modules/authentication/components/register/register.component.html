@@ -1,3 +1,54 @@
-<p>
-  register works!
-</p>
+<div class="d-flex align-items-center py-4">
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="form" (ngSubmit)="subtmit(this.form.value)">
+      <a [routerLink]="['/home']">
+        <img
+          class="mb-4"
+          src="../../../../../assets/img/logos/crm.png"
+          alt=""
+          width="72"
+          height="72"
+        />
+      </a>
+      <h1 class="h3 mb-3 fw-normal">Create account</h1>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInputFullName"
+          placeholder="e.g. John Doe"
+          formControlName="fullName"
+        />
+        <label for="floatingInputFullName">Full Name</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          formControlName="email"
+        />
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button class="btn btn-primary w-100 py-2" type="submit">Create account</button>
+
+      <p>
+        <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active"
+          >Sign in</a
+        >
+      </p>
+    </form>
+  </main>
+</div>
